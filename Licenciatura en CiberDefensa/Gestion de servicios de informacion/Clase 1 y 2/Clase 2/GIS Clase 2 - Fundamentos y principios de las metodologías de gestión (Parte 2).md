@@ -34,7 +34,7 @@
 ---
 
 ### Componentes y estructura de FitSM  
-![Mi Imagen](/Licenciatura%20en%20CiberDefensa/Gestion%20de%20servicios%20de%20informacion/Clase%201%20y%202/Clase%202/foto.jpg)
+![Mi Imagen][def]
 
 # 📚 Documentación Estándar de FitSM (FitSM-0 a FitSM-6)
 
@@ -139,3 +139,5 @@
   - *ITIL:* prácticas operativas para la gestión de servicios.  
   - *ISO 20000:* norma certificable de buenas prácticas.  
 - Seguimos construyendo una mirada integral de la gestión de servicios de información.  
+
+[def]: /Licenciatura%20en%20CiberDefensa/Gestion%20de%20servicios%20de%20informacion/Clase%201%20y%202/Clase%202/foto.jpg

@@ -1,0 +1,13 @@
+asset_id,hostname,ip,dept,owner,os,criticality
+1,SRV-AD-01,10.10.0.10,Jefatura,TI,Windows Server 2019,Alta
+2,SRV-WEB-01,10.10.0.20,Operaciones,TI,Ubuntu 22.04,Alta
+3,SRV-DB-01,10.10.0.30,Inteligencia,TI,Ubuntu 22.04,Alta
+4,NB-ANALISTA-01,10.10.1.11,Ciberdefensa,Analista 1,Windows 11 Pro,Media
+5,NB-ANALISTA-02,10.10.1.12,Ciberdefensa,Analista 2,Windows 11 Pro,Media
+6,NB-OPER-01,10.10.2.21,Operaciones,Operador 1,Windows 10 Pro,Media
+7,SRV-LOG-01,10.10.0.40,Ciberdefensa,TI,Rocky Linux 9,Alta
+8,FW-EDGE-01,10.10.254.1,Redes,TI,Appliance,Alta
+9,SRV-EMAIL-01,10.10.0.50,Jefatura,TI,Debian 12,Alta
+10,SRV-BACKUP-01,10.10.0.60,Ciberdefensa,TI,FreeBSD 13,Alta
+11,NB-CAD-01,10.10.3.31,Logística,Cadete 1,Windows 10 Home,Baja
+12,SRV-VPN-01,10.10.0.70,Redes,TI,Ubuntu 20.04,Alta

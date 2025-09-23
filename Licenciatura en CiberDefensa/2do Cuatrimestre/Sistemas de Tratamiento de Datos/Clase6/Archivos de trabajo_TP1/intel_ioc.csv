@@ -1,0 +1,9 @@
+ioc_id,ioc_type,value,source,first_seen,last_seen,confidence
+1,ip,185.199.110.153,MISP-AR,2025-07-10,2025-08-10,85
+2,ip,45.83.192.77,AlienVault OTX,2025-08-05,2025-08-18,90
+3,domain,login-seguro-ar[.]com,CERT.ar,2025-08-01,2025-08-15,80
+4,domain,update-win-service[.]net,MISP-AR,2025-07-28,2025-08-12,70
+5,hash,b1946ac92492d2347c6235b4d2611184,VirusTotal,2025-07-22,2025-08-03,95
+6,ip,103.216.61.75,OTX,2025-08-12,2025-08-17,60
+7,ip,201.231.155.44,ISP Abuse Desk,2025-07-30,2025-08-16,65
+8,domain,bank-argentina[.]co,CERT.ar,2025-08-08,2025-08-18,88

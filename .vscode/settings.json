@@ -13,6 +13,21 @@
             "name": "Ciberdefensa",
             "username": "root",
             "database": "ciberdefensa"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "EjercicioClase7",
+            "username": "root",
+            "database": "EjercicioClase7",
+            "askForPassword": true
         }
     ]
 }

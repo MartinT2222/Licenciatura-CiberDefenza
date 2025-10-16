@@ -133,7 +133,7 @@ public class Persona {
      +--------------+
 ```
 
-### Ejemplo en C++
+### Ejemplo en el lenguaje C++
 
 ```cpp
 #include <iostream>
@@ -157,7 +157,7 @@ int main() {
 }
 ```
 
-### Ejemplo en Java
+### Ejemplo en el Java
 
 ```java
 class Persona {
@@ -214,7 +214,7 @@ public class Main {
 
 - Por ejemplo, tanto Perro como Gato heredan de Animal, pero cada uno implementa su propio comportamiento del método hacerSonido().
 
-### Ejemplo en C++
+### Ejemplo en el C++
 
 ```cpp
 #include <iostream>
@@ -246,7 +246,7 @@ int main() {
 }
 ```
 
-### Ejemplo en Java
+### Ejemplo en el lenguaje Java
 
 ```java
 class Animal {

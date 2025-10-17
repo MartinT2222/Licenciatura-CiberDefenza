@@ -11,25 +11,30 @@ Año: 2025
 La **seguridad** en bases de datos protege la información frente a accesos no autorizados, pérdida o manipulación. En ciberseguridad, esto asegura la **confidencialidad**, **integridad** y **disponibilidad** (CIA triad).
 
 ### **1.1. Autenticación**
+
 Proceso de verificar la identidad de usuarios o sistemas.
 
 **Métodos comunes:**
+
 - 🔑 Usuario y contraseña.
 - 🔒 Autenticación multifactor (MFA).
 - 🌐 Autenticación externa (LDAP, Active Directory, SSO con OAuth/Kerberos).
 
 **Ejemplo (PostgreSQL):**
+
 ```sql
 CREATE USER analista WITH PASSWORD 'ClaveFuerte123!';
 ALTER USER analista WITH ENCRYPTED PASSWORD;
 ```
 
 **Buenas prácticas en ciberseguridad:**
+
 - Usar contraseñas complejas (mín. 12 caracteres).
 - Habilitar **SSL/TLS** para conexiones cifradas.
 - Limitar intentos fallidos para evitar ataques de fuerza bruta.
 
 ### **1.2. Autorización**
+
 Controla qué acciones puede realizar cada usuario o rol.
 
 ```sql
@@ -42,6 +47,7 @@ REVOKE DELETE ON seguridad.log_eventos FROM 'auditor'@'localhost';
 ---
 
 ### **1.3. Control de Acceso Basado en Roles (RBAC)**
+
 Permite administrar permisos por **roles**, no por usuarios individuales.
 
 ```sql
@@ -51,21 +57,26 @@ ALTER ROLE analista_ciber ADD MEMBER usuario1;
 ```
 
 **Ejemplo práctico:**  
+
 - Rol `analista_ciber`: puede leer alertas.  
 - Rol `admin_dba`: acceso total a las tablas de incidentes.
 
 ---
 
 ### **1.4. Cifrado de Datos**
+
 El cifrado protege los datos en **reposo** y en **tránsito**.
 
 #### En reposo (almacenados)
+
 Ejemplo en Oracle:
+
 ```sql
 ALTER TABLE incidentes ADD (descripcion VARCHAR2(255) ENCRYPT);
 ```
 
 #### En tránsito (conexiones)
+
 - Usar **TLS/SSL**.
 - Evitar versiones obsoletas (TLS 1.0/1.1).
 
@@ -74,6 +85,7 @@ ALTER TABLE incidentes ADD (descripcion VARCHAR2(255) ENCRYPT);
 ---
 
 ### **1.5. Auditoría de Bases de Datos**
+
 Registra eventos (quién, cuándo, qué acción realizó).
 
 ```sql
@@ -84,6 +96,7 @@ SET pgaudit.log = 'read, write';
 **En ciberseguridad:** permite detectar accesos sospechosos o modificaciones indebidas.
 
 **Buenas prácticas:**
+
 - Guardar logs en servidor independiente.
 - Configurar alertas por actividad inusual.
 - Cumplir normativas (ISO 27001, GDPR).
@@ -91,9 +104,11 @@ SET pgaudit.log = 'read, write';
 ---
 
 ### **1.6. Copias de Seguridad y Recuperación**
+
 Esencial ante ataques ransomware o errores humanos.
 
 **Tipos de backup:**
+
 | Tipo | Descripción |
 |------|--------------|
 | Completo | Copia total de la base |
@@ -109,6 +124,7 @@ Esencial ante ataques ransomware o errores humanos.
 Garantiza integridad cuando múltiples usuarios acceden a la base.
 
 ### **2.1. Propiedades ACID**
+
 - **Atomicidad:** todo o nada.  
 - **Consistencia:** mantiene reglas del sistema.  
 - **Aislamiento:** transacciones no interfieren.  
@@ -126,6 +142,7 @@ COMMIT;
 ---
 
 ### **2.2. Problemas de Concurrencia**
+
 | Problema | Descripción | Ejemplo |
 |-----------|--------------|----------|
 | Lecturas sucias | Leer datos no confirmados | Leer registro de ataque aún no validado |
@@ -141,6 +158,7 @@ COMMIT;
 Optimizar rendimiento evita cuellos de botella y mejora respuesta ante incidentes.
 
 ### **3.1. Estrategias de Indexación**
+
 Los índices aceleran consultas, aunque pueden ralentizar escrituras.
 
 ```sql
@@ -150,12 +168,14 @@ CREATE INDEX idx_evento_fecha ON incidentes (fecha);
 **Ejemplo:** buscar ataques por fecha o dirección IP.
 
 **Tipos útiles en ciberseguridad:**
+
 - 🔍 *Full-Text Index*: para buscar palabras clave (“malware”, “phishing”).
 - 🗺️ *Índices espaciales*: para mapear IPs o ubicaciones.
 
 ---
 
 ### **3.2. Optimización de Consultas**
+
 Usar **EXPLAIN ANALYZE** para ver el plan de ejecución:
 
 ```sql
@@ -163,6 +183,7 @@ EXPLAIN ANALYZE SELECT * FROM logs WHERE tipo = 'intrusion';
 ```
 
 **Buenas prácticas:**
+
 - Evitar `SELECT *`
 - Usar filtros (`WHERE tipo = 'malware'`)
 - Indexar columnas en `JOIN`
@@ -170,6 +191,7 @@ EXPLAIN ANALYZE SELECT * FROM logs WHERE tipo = 'intrusion';
 ---
 
 ### **3.3. Particionamiento y Sharding**
+
 Divide grandes volúmenes de datos (como logs de incidentes).
 
 ```sql
@@ -185,6 +207,7 @@ CREATE TABLE logs_2025 PARTITION OF logs FOR VALUES FROM ('2025-01-01') TO ('202
 Define cómo se organizan y acceden los datos.
 
 ### **4.1. Modelo Cliente-Servidor**
+
 Aplicación de monitoreo (cliente) consulta servidor de base (MySQL, PostgreSQL).
 
 **Riesgo:** ataques DoS si hay demasiadas conexiones.  
@@ -193,9 +216,11 @@ Aplicación de monitoreo (cliente) consulta servidor de base (MySQL, PostgreSQL)
 ---
 
 ### **4.2. Distribución y Replicación**
+
 Replicar datos en varios nodos para disponibilidad.
 
 **Ejemplo:**
+
 - Nodo A (maestro): recibe alertas nuevas.
 - Nodo B (esclavo): replica para análisis forense.
 
@@ -204,6 +229,7 @@ Replicar datos en varios nodos para disponibilidad.
 ---
 
 ### **4.3. Two-Phase Commit (2PC)**
+
 Asegura consistencia entre nodos distribuidos.
 
 **Ejemplo:** sincronización de logs entre centros de datos.
@@ -214,27 +240,9 @@ Asegura consistencia entre nodos distribuidos.
 ---
 
 ### **4.4. Propagación Asincrónica**
+
 Actualizaciones no inmediatas → mejora rendimiento.
 
 **Ejemplo:** el servidor de respaldo recibe las alertas de seguridad unos segundos después.
 
 ---
-
-# 📘 **Conclusiones**
-- La seguridad de base de datos es **crítica en ciberdefensa**.
-- Autenticación, cifrado, auditoría y respaldo son pilares básicos.
-- El rendimiento y la concurrencia garantizan **disponibilidad** ante ataques o fallos.
-- Las bases distribuidas mejoran la **resiliencia** frente a incidentes.
-
----
-
-# 🧠 **Ejercicio Práctico Sugerido**
-1. Crear usuarios y roles seguros en PostgreSQL.  
-2. Configurar auditoría con pgAudit.  
-3. Simular ataque SQL Injection y revisar logs.  
-4. Crear backup cifrado con pg_dump + OpenSSL.  
-5. Analizar plan de ejecución con `EXPLAIN ANALYZE`.
-
----
-
-**Fin del resumen – Administración de Bases de Datos (Ciberdefensa)**

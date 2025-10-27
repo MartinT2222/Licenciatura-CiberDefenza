@@ -1,0 +1,80 @@
+@startuml
+title Carrito de Compras - UML Completo
+
+' ======= CLASE ABSTRACTA PRODUCTO =======
+abstract class Producto {
+    - id : int
+    - nombre : String
+    - precio : float
+    --
+    + getId() : int
+    + getNombre() : String
+    + getPrecio() : float
+    + setNombre(nombre : String) : void
+    + setPrecio(precio : float) : void
+    + mostrarProducto() : void
+}
+
+' ======= SUBCLASES =======
+class ProductoFisico extends Producto {
+    - peso : float
+    --
+    + getPeso() : float
+    + mostrarProducto() : void
+}
+
+class ProductoDigital extends Producto {
+    - codigoLicencia : String
+    - urlDescarga : String
+    --
+    + getCodigoLicencia() : String
+    + getUrlDescarga() : String
+    + mostrarProducto() : void
+}
+
+' ======= ITEM CARRITO =======
+class ItemCarrito {
+    - producto : Producto
+    - cantidad : int
+    - subtotal : float
+    --
+    + getSubtotal() : float
+    + incrementarCantidad() : void
+    + getCantidad() : int
+    + getProducto() : Producto
+    + mostrarItem() : void
+}
+
+' ======= CARRITO =======
+class Carrito {
+    - items : List<ItemCarrito>
+    --
+    + agregarProducto(producto : Producto, cantidad : int) : void
+    + eliminarProducto(producto : Producto) : void
+    + vaciarCarrito() : void
+    + total() : float
+    + pesoTotal() : float
+    + mostrarCarrito() : void
+}
+
+' ======= USUARIO =======
+class Usuario {
+    - nombre : String
+    - email : String
+    - carrito : Carrito
+    --
+    + iniciarCarrito() : void
+    + agregarAlCarrito(producto : Producto, cantidad : int) : void
+    + verCarrito() : void
+    + finalizarCompra() : void
+}
+
+' ======= RELACIONES =======
+ProductoFisico -|> Producto
+ProductoDigital -|> Producto
+
+Carrito "1" *-- "0..*" ItemCarrito : contiene >
+Usuario "1" *-- "1" Carrito : posee >
+ItemCarrito --> Producto : referencia >
+
+@enduml

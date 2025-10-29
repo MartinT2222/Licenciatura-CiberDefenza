@@ -28,6 +28,21 @@
             "username": "root",
             "database": "EjercicioClase7",
             "askForPassword": true
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "EjercicioClase10",
+            "database": "EjercicioClase10",
+            "username": "root",
+            "askForPassword": true
         }
     ]
 }

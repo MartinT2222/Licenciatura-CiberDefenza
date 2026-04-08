@@ -1,9 +1,11 @@
 # 🧭 Autoevaluación – Semana 14  
+
 ## **Susan Strange – *The Declining Authority of States***
 
 ---
 
 ## **Pregunta 1**  
+
 **¿Cuál es la tesis central del libro respecto al equilibrio de poder entre los Estados y los mercados a finales del siglo XX?**
 
 **Opciones:**  
@@ -21,6 +23,7 @@ Strange sostiene que el poder se ha desplazado desde los Estados hacia los **mer
 ---
 
 ## **Pregunta 2**  
+
 **Según Strange, ¿qué dos factores clave, a menudo descuidados por los científicos sociales, son las causas principales del cambio en el equilibrio Estado‑mercado?**
 
 **Opciones:**  
@@ -38,6 +41,7 @@ El cambio tecnológico en comunicaciones, transporte y finanzas, junto con el el
 ---
 
 ## **Pregunta 3**  
+
 **¿Qué ha reemplazado a la competencia por el territorio como el “nombre del juego” entre los Estados?**
 
 **Opciones:**  
@@ -55,6 +59,7 @@ Strange afirma que los Estados ya no compiten principalmente por territorio fís
 ---
 
 ## **Pregunta 4**  
+
 **¿Cuál de las siguientes premisas desafía las suposiciones convencionales de las ciencias sociales?**
 
 **Opciones:**  
@@ -72,6 +77,7 @@ Strange cuestiona la idea clásica de que el Estado es el actor central y exclus
 ---
 
 ## **Pregunta 5**  
+
 **La pérdida de autoridad de los Estados se refleja en su difusión hacia:**
 
 **Opciones:**  

@@ -140,3 +140,48 @@ DESCRIBE countries;
 -- ME selecciona todo de la tabla countries
 SELECT countries.name AS country_name
 FROM country_name;
+
+
+
+
+
+-- Consultas del Parcial 
+SELECT 
+    c.name AS country,
+    mv.value AS air_fighters_2025
+FROM metric_values mv
+JOIN metrics m 
+    ON m.metric_id = mv.metric_id
+JOIN countries c 
+    ON c.country_id = mv.country_id
+WHERE m.code = 'air_fighters'
+  AND mv.year = 2025
+  AND mv.value > (
+        SELECT AVG(mv2.value)
+        FROM metric_values mv2
+        JOIN metrics m2 
+            ON m2.metric_id = mv2.metric_id
+        WHERE m2.code = 'air_fighters'
+          AND mv2.year = 2025
+    )
+ORDER BY mv.value DESC;
+
+
+SELECT 
+    c.name AS country,
+    mv2025.value - mv2024.value AS aumento_reservas
+FROM countries c
+JOIN metric_values mv2024 
+    ON c.country_id = mv2024.country_id
+JOIN metrics m24 
+    ON mv2024.metric_id = m24.metric_id
+JOIN metric_values mv2025 
+    ON c.country_id = mv2025.country_id
+JOIN metrics m25 
+    ON mv2025.metric_id = m25.metric_id
+WHERE 
+    m24.code = 'fin_forex_gold_usd'
+    AND mv2024.year = 2024
+    AND m25.code = 'fin_forex_gold_usd'
+    AND mv2025.year = 2025
+ORDER BY aumento_reservas DESC;

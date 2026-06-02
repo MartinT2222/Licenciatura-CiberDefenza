@@ -73,10 +73,6 @@ El documento destaca que una HMI mal diseñada puede degradar la **Conciencia Si
 ---
 *Documento de Cátedra N° 8 - Licenciatura en Ciberdefensa (2026)*
 
-
-
-
-
 # Actividades de Verificación y Análisis - Unidad 2
 
 ## 1. Diferencia funcional entre Polling y Reporte por Excepción (RBE)

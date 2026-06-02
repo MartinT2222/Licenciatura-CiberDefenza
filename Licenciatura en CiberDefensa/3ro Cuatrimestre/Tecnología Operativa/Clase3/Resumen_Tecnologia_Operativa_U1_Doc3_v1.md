@@ -63,4 +63,4 @@ El transmisor acondiciona la señal para largas distancias.
 ---
 *Referencia: Bolton, W. (2017). Mecatrónica: Sistemas de control electrónico en la ingeniería mecánica y eléctrica.*
 
-![Texto alternativo](resumenimg.png)
+![Texto alternativo](resumenimg3.png)

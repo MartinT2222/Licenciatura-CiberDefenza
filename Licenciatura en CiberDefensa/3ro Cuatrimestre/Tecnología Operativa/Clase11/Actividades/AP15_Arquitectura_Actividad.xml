@@ -1,0 +1,295 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Arquitectura Revisada IT/OT - AP15">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ========================= -->
+        <!-- ZONA IT (LEVEL 4)         -->
+        <!-- ========================= -->
+        <mxCell id="zone_it" value="Nivel 4: Red Corporativa IT (VLAN 10)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;startSize=60;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="900" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- ========================= -->
+        <!-- DMZ 3.5 (VERDE)           -->
+        <!-- ========================= -->
+        <mxCell id="zone_dmz" value="DMZ 3.5 (VLAN 15)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;startSize=60;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="900" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- ========================= -->
+        <!-- ZONA OT (LEVEL 3)         -->
+        <!-- ========================= -->
+        <mxCell id="zone_l3" value="Nivel 3: Operaciones de Planta (VLAN 20)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;startSize=60;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="900" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- ========================= -->
+        <!-- ZONA OT (LEVEL 1/2)       -->
+        <!-- ========================= -->
+        <mxCell id="zone_l12" value="Niveles 1 y 2: Control y Proceso (VLAN 30)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;startSize=60;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="900" height="240" as="geometry"/>
+        </mxCell>
+
+        <!-- ========================= -->
+        <!-- INTERNET / CLOUD          -->
+        <!-- ========================= -->
+        <mxCell id="zone_internet" value="Internet / Cloud (AWS IoT)" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="980" y="260" width="180" height="110" as="geometry"/>
+        </mxCell>
+        <!-- ========================= -->
+        <!-- COMPONENTES IT (LEVEL 4)  -->
+        <!-- ========================= -->
+
+        <mxCell id="comp_J" value="J: Active Directory + Email" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="comp_I" value="I: ERP SAP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="360" y="80" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ========================= -->
+        <!-- COMPONENTES DMZ (VERDE)   -->
+        <!-- ========================= -->
+
+        <mxCell id="comp_E" value="E: Historian (ubicado en DMZ)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="240" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="comp_JS" value="Jump Server (Acceso remoto controlado)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="120" y="240" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="comp_PROXY" value="Reverse Proxy SCADA (DMZ)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="620" y="240" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ========================= -->
+        <!-- FIREWALLS (VERDE)         -->
+        <!-- ========================= -->
+
+        <mxCell id="fw_it_dmz" value="Firewall IT → DMZ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#008000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="260" y="180" width="160" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="fw_dmz_ot" value="Firewall DMZ → OT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#008000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="260" y="340" width="160" height="40" as="geometry"/>
+        </mxCell>
+        <!-- ========================= -->
+        <!-- COMPONENTES OT LEVEL 3    -->
+        <!-- ========================= -->
+
+        <mxCell id="comp_D" value="D: SCADA InduSoft (acceso vía Proxy DMZ)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="120" y="400" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="comp_G" value="G: VPN Fortinet (termina en DMZ)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="620" y="400" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ========================= -->
+        <!-- COMPONENTES OT LEVEL 1/2  -->
+        <!-- ========================= -->
+
+        <mxCell id="comp_A" value="A: PLCs Siemens S7-300" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="120" y="560" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="comp_B" value="B: RTUs GE D20" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="360" y="560" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="comp_C" value="C: HMI Siemens TP1200 (sin TeamViewer)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="600" y="560" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ========================= -->
+        <!-- IIoT GATEWAY CORREGIDO    -->
+        <!-- ========================= -->
+
+        <mxCell id="comp_F" value="F: IIoT Gateway (APN privado, sin salida directa)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="360" y="660" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ========================= -->
+        <!-- AP WIFI SEGMENTADO        -->
+        <!-- ========================= -->
+
+        <mxCell id="comp_H" value="H: AP WiFi (VLAN separada + 802.1X)" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="120" y="660" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <!-- ========================= -->
+        <!-- CONEXIONES VERDES (DMZ)   -->
+        <!-- ========================= -->
+
+        <!-- ERP SAP → Firewall IT→DMZ -->
+        <mxCell id="edge_it_fw" edge="1" parent="1" source="comp_I" target="fw_it_dmz"
+          style="strokeColor=#008000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Firewall IT→DMZ → Historian -->
+        <mxCell id="edge_fw_hist" edge="1" parent="1" source="fw_it_dmz" target="comp_E"
+          style="strokeColor=#008000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Firewall IT→DMZ → Jump Server -->
+        <mxCell id="edge_fw_js" edge="1" parent="1" source="fw_it_dmz" target="comp_JS"
+          style="strokeColor=#008000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Firewall IT→DMZ → Proxy SCADA -->
+        <mxCell id="edge_fw_proxy" edge="1" parent="1" source="fw_it_dmz" target="comp_PROXY"
+          style="strokeColor=#008000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+
+        <!-- ========================= -->
+        <!-- CONEXIONES VERDES (DMZ→OT)-->
+        <!-- ========================= -->
+
+        <!-- Historian → Firewall DMZ→OT -->
+        <mxCell id="edge_hist_fwot" edge="1" parent="1" source="comp_E" target="fw_dmz_ot"
+          style="strokeColor=#008000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Proxy SCADA → Firewall DMZ→OT -->
+        <mxCell id="edge_proxy_fwot" edge="1" parent="1" source="comp_PROXY" target="fw_dmz_ot"
+          style="strokeColor=#008000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Jump Server → Firewall DMZ→OT -->
+        <mxCell id="edge_js_fwot" edge="1" parent="1" source="comp_JS" target="fw_dmz_ot"
+          style="strokeColor=#008000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+
+        <!-- ========================= -->
+        <!-- FIREWALL DMZ→OT → OT      -->
+        <!-- ========================= -->
+
+        <!-- Firewall → SCADA -->
+        <mxCell id="edge_fwot_scada" edge="1" parent="1" source="fw_dmz_ot" target="comp_D"
+          style="strokeColor=#008000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Firewall → PLCs -->
+        <mxCell id="edge_fwot_plc" edge="1" parent="1" source="fw_dmz_ot" target="comp_A"
+          style="strokeColor=#008000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Firewall → RTUs -->
+        <mxCell id="edge_fwot_rtus" edge="1" parent="1" source="fw_dmz_ot" target="comp_B"
+          style="strokeColor=#008000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+
+        <!-- ========================= -->
+        <!-- CONEXIONES ROJAS (EROSIÓN)-->
+        <!-- ========================= -->
+
+        <!-- IIoT → Internet (vector de erosión) -->
+        <mxCell id="edge_f_cloud" edge="1" parent="1" source="comp_F" target="zone_internet"
+          style="strokeColor=#ff0000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- AP WiFi → PLCs (vector de erosión) -->
+        <mxCell id="edge_wifi_plc" edge="1" parent="1" source="comp_H" target="comp_A"
+          style="strokeColor=#ff0000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+
+        <!-- ========================= -->
+        <!-- CONEXIONES NARANJA (ATAQUE)-->
+        <!-- ========================= -->
+
+        <!-- J (Email) → Historian -->
+        <mxCell id="edge_attack1" edge="1" parent="1" source="comp_J" target="comp_E"
+          style="strokeColor=#ff9900;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Historian → SCADA -->
+        <mxCell id="edge_attack2" edge="1" parent="1" source="comp_E" target="comp_D"
+          style="strokeColor=#ff9900;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- SCADA → PLCs -->
+        <mxCell id="edge_attack3" edge="1" parent="1" source="comp_D" target="comp_A"
+          style="strokeColor=#ff9900;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- ========================= -->
+        <!-- CONEXIONES INTERNAS OT    -->
+        <!-- ========================= -->
+
+        <!-- SCADA → PLCs -->
+        <mxCell id="edge_scada_plc" edge="1" parent="1" source="comp_D" target="comp_A"
+          style="strokeColor=#000000;strokeWidth=1;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- SCADA → RTUs -->
+        <mxCell id="edge_scada_rtus" edge="1" parent="1" source="comp_D" target="comp_B"
+          style="strokeColor=#000000;strokeWidth=1;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- HMI → PLCs -->
+        <mxCell id="edge_hmi_plc" edge="1" parent="1" source="comp_C" target="comp_A"
+          style="strokeColor=#000000;strokeWidth=1;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- IIoT Gateway → PLCs -->
+        <mxCell id="edge_iiot_plc" edge="1" parent="1" source="comp_F" target="comp_A"
+          style="strokeColor=#000000;strokeWidth=1;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- AP WiFi → HMI -->
+        <mxCell id="edge_wifi_hmi" edge="1" parent="1" source="comp_H" target="comp_C"
+          style="strokeColor=#000000;strokeWidth=1;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ========================= -->
+        <!-- VPN → DMZ (ACCESO CONTROLADO) -->
+        <!-- ========================= -->
+
+        <mxCell id="edge_vpn_js" edge="1" parent="1" source="comp_G" target="comp_JS"
+          style="strokeColor=#008000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ========================= -->
+        <!-- PROXY SCADA → SCADA       -->
+        <!-- ========================= -->
+
+        <mxCell id="edge_proxy_scada" edge="1" parent="1" source="comp_PROXY" target="comp_D"
+          style="strokeColor=#008000;strokeWidth=3;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- ========================= -->
+        <!-- CIERRE DE ESTRUCTURAS     -->
+        <!-- ========================= -->
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

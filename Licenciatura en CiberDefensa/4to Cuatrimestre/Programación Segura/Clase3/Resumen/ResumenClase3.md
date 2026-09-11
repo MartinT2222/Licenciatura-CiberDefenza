@@ -107,3 +107,4 @@ DevSecOps incorpora la seguridad de manera intrínseca en todas las fases del ci
 - **Configuración:** Desplegar infraestructura segura aplicando principios de mínima exposición, controles de integridad, verificación de firmas de software y estrategias de defensa en profundidad (Defense In-Depth).
 - **Detección:** Prevenir y detectar vulnerabilidades en tiempo de ejecución utilizando autoprotección de aplicaciones en tiempo de ejecución (RASP), análisis de comportamiento de entidades y usuarios (UEBA), monitoreo de red y pruebas de penetración (pentesting).
 - **Respuesta:** Mitigar y reaccionar activamente ante amenazas detectadas mediante sistemas de orquestación de seguridad (SOAR), cortafuegos de aplicaciones web (WAF) y RASP junto con técnicas de ofuscación de código.
+- **Prediccion:** Anticiparse a futuros vectores de ataque usando informacion contextualizada.
